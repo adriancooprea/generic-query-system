@@ -1,0 +1,16 @@
+/Users/adrianoprea/Projects/GenericQuerySystem/GenericQuerySystemTests.Unit/bin/Debug/netcoreapp2.0/xunit.runner.visualstudio.dotnetcore.testadapter.dll
+/Users/adrianoprea/Projects/GenericQuerySystem/GenericQuerySystemTests.Unit/bin/Debug/netcoreapp2.0/xunit.runner.utility.netstandard15.dll
+/Users/adrianoprea/Projects/GenericQuerySystem/GenericQuerySystemTests.Unit/bin/Debug/netcoreapp2.0/xunit.runner.reporters.netstandard15.dll
+/Users/adrianoprea/Projects/GenericQuerySystem/GenericQuerySystemTests.Unit/bin/Debug/netcoreapp2.0/GenericQuerySystemTests.Unit.deps.json
+/Users/adrianoprea/Projects/GenericQuerySystem/GenericQuerySystemTests.Unit/bin/Debug/netcoreapp2.0/GenericQuerySystemTests.Unit.runtimeconfig.json
+/Users/adrianoprea/Projects/GenericQuerySystem/GenericQuerySystemTests.Unit/bin/Debug/netcoreapp2.0/GenericQuerySystemTests.Unit.runtimeconfig.dev.json
+/Users/adrianoprea/Projects/GenericQuerySystem/GenericQuerySystemTests.Unit/bin/Debug/netcoreapp2.0/GenericQuerySystemTests.Unit.dll
+/Users/adrianoprea/Projects/GenericQuerySystem/GenericQuerySystemTests.Unit/bin/Debug/netcoreapp2.0/GenericQuerySystemTests.Unit.pdb
+/Users/adrianoprea/Projects/GenericQuerySystem/GenericQuerySystemTests.Unit/bin/Debug/netcoreapp2.0/GenericQuerySystem.dll
+/Users/adrianoprea/Projects/GenericQuerySystem/GenericQuerySystemTests.Unit/bin/Debug/netcoreapp2.0/GenericQuerySystem.pdb
+/Users/adrianoprea/Projects/GenericQuerySystem/GenericQuerySystemTests.Unit/obj/Debug/netcoreapp2.0/GenericQuerySystemTests.Unit.csprojResolveAssemblyReference.cache
+/Users/adrianoprea/Projects/GenericQuerySystem/GenericQuerySystemTests.Unit/obj/Debug/netcoreapp2.0/GenericQuerySystemTests.Unit.csproj.CoreCompileInputs.cache
+/Users/adrianoprea/Projects/GenericQuerySystem/GenericQuerySystemTests.Unit/obj/Debug/netcoreapp2.0/GenericQuerySystemTests.Unit.AssemblyInfoInputs.cache
+/Users/adrianoprea/Projects/GenericQuerySystem/GenericQuerySystemTests.Unit/obj/Debug/netcoreapp2.0/GenericQuerySystemTests.Unit.AssemblyInfo.cs
+/Users/adrianoprea/Projects/GenericQuerySystem/GenericQuerySystemTests.Unit/obj/Debug/netcoreapp2.0/GenericQuerySystemTests.Unit.dll
+/Users/adrianoprea/Projects/GenericQuerySystem/GenericQuerySystemTests.Unit/obj/Debug/netcoreapp2.0/GenericQuerySystemTests.Unit.pdb

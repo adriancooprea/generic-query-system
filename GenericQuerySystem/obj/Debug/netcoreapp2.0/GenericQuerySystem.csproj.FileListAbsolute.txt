@@ -1,0 +1,11 @@
+/Users/adrianoprea/Projects/GenericQuerySystem/GenericQuerySystem/obj/Debug/netcoreapp2.0/GenericQuerySystem.csprojResolveAssemblyReference.cache
+/Users/adrianoprea/Projects/GenericQuerySystem/GenericQuerySystem/obj/Debug/netcoreapp2.0/GenericQuerySystem.csproj.CoreCompileInputs.cache
+/Users/adrianoprea/Projects/GenericQuerySystem/GenericQuerySystem/obj/Debug/netcoreapp2.0/GenericQuerySystem.AssemblyInfoInputs.cache
+/Users/adrianoprea/Projects/GenericQuerySystem/GenericQuerySystem/obj/Debug/netcoreapp2.0/GenericQuerySystem.AssemblyInfo.cs
+/Users/adrianoprea/Projects/GenericQuerySystem/GenericQuerySystem/bin/Debug/netcoreapp2.0/GenericQuerySystem.deps.json
+/Users/adrianoprea/Projects/GenericQuerySystem/GenericQuerySystem/bin/Debug/netcoreapp2.0/GenericQuerySystem.runtimeconfig.json
+/Users/adrianoprea/Projects/GenericQuerySystem/GenericQuerySystem/bin/Debug/netcoreapp2.0/GenericQuerySystem.runtimeconfig.dev.json
+/Users/adrianoprea/Projects/GenericQuerySystem/GenericQuerySystem/bin/Debug/netcoreapp2.0/GenericQuerySystem.dll
+/Users/adrianoprea/Projects/GenericQuerySystem/GenericQuerySystem/bin/Debug/netcoreapp2.0/GenericQuerySystem.pdb
+/Users/adrianoprea/Projects/GenericQuerySystem/GenericQuerySystem/obj/Debug/netcoreapp2.0/GenericQuerySystem.dll
+/Users/adrianoprea/Projects/GenericQuerySystem/GenericQuerySystem/obj/Debug/netcoreapp2.0/GenericQuerySystem.pdb

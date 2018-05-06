@@ -1,0 +1,30 @@
+﻿<Properties StartupConfiguration="{08EEEC7B-C2B4-4EBC-8E71-8D8E7A1060AA}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="GenericQuerySystem/QueryBuilder.cs">
+    <Files>
+      <File FileName="GenericQuerySystem/Program.cs" Line="1" Column="1" />
+      <File FileName="GenericQuerySystem/Interfaces/QueryField.cs" Line="1" Column="1" />
+      <File FileName="GenericQuerySystem/DTOs/SingleValueQueryField.cs" Line="1" Column="1" />
+      <File FileName="GenericQuerySystem/DTOs/MultipleValuesQueryField.cs" Line="1" Column="1" />
+      <File FileName="GenericQuerySystem/DTOs/QueryRule.cs" Line="1" Column="1" />
+      <File FileName="GenericQuerySystem/Enums/FieldOperation.cs" Line="1" Column="1" />
+      <File FileName="GenericQuerySystem/Enums/SortingOperation.cs" Line="1" Column="1" />
+      <File FileName="GenericQuerySystem/Enums/LogicalOperation.cs" Line="1" Column="1" />
+      <File FileName="GenericQuerySystem/DTOs/QuerySorter.cs" Line="1" Column="1" />
+      <File FileName="GenericQuerySystem/DTOs/QueryGroup.cs" Line="1" Column="1" />
+      <File FileName="GenericQuerySystem/QueryBuilder.cs" Line="1" Column="1" />
+      <File FileName="GenericQuerySystem/Interfaces/IQueryBuilder.cs" Line="1" Column="1" />
+      <File FileName="GenericQuerySystem/Interfaces/IQueryCompiler.cs" Line="1" Column="1" />
+      <File FileName="GenericQuerySystem/QueryCompiler.cs" Line="54" Column="36" />
+      <File FileName="GenericQuerySystem/Extensions/TypeExtensions.cs" Line="1" Column="1" />
+      <File FileName="GenericQuerySystemTests.Unit/QueryBuilderTests.cs" Line="1" Column="1" />
+      <File FileName="GenericQuerySystemTests.Unit/QueryCompilerTests.cs" Line="1" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.GenericQuerySystemTests.Unit PreferredExecutionTarget="MonoDevelop.Default" />
+</Properties>
