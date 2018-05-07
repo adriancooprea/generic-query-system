@@ -1,0 +1,14 @@
+C:\Github\generic-query-system\SimpleUse\obj\Debug\netcoreapp2.0\SimpleUse.csprojResolveAssemblyReference.cache
+C:\Github\generic-query-system\SimpleUse\obj\Debug\netcoreapp2.0\SimpleUse.csproj.CoreCompileInputs.cache
+C:\Github\generic-query-system\SimpleUse\obj\Debug\netcoreapp2.0\SimpleUse.AssemblyInfoInputs.cache
+C:\Github\generic-query-system\SimpleUse\obj\Debug\netcoreapp2.0\SimpleUse.AssemblyInfo.cs
+C:\Github\generic-query-system\SimpleUse\bin\Debug\netcoreapp2.0\SimpleUse.deps.json
+C:\Github\generic-query-system\SimpleUse\bin\Debug\netcoreapp2.0\SimpleUse.runtimeconfig.json
+C:\Github\generic-query-system\SimpleUse\bin\Debug\netcoreapp2.0\SimpleUse.runtimeconfig.dev.json
+C:\Github\generic-query-system\SimpleUse\bin\Debug\netcoreapp2.0\SimpleUse.dll
+C:\Github\generic-query-system\SimpleUse\bin\Debug\netcoreapp2.0\SimpleUse.pdb
+C:\Github\generic-query-system\SimpleUse\bin\Debug\netcoreapp2.0\GenericQuerySystem.dll
+C:\Github\generic-query-system\SimpleUse\bin\Debug\netcoreapp2.0\GenericQuerySystem.pdb
+C:\Github\generic-query-system\SimpleUse\obj\Debug\netcoreapp2.0\SimpleUse.csproj.CopyComplete
+C:\Github\generic-query-system\SimpleUse\obj\Debug\netcoreapp2.0\SimpleUse.dll
+C:\Github\generic-query-system\SimpleUse\obj\Debug\netcoreapp2.0\SimpleUse.pdb

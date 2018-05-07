@@ -17,7 +17,6 @@ namespace GenericQuerySystem
             _queryBuilder = queryBuilder;
         }
 
-
         public IEnumerable<T> FilterCollection(IEnumerable<T> collection, QueryGroup queryGroup)
         {
             if (!queryGroup.HasChildren && queryGroup.Rules.Count <= 0) return collection;

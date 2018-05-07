@@ -25,7 +25,6 @@ namespace GenericQuerySystemTests.Unit
 
             public string Text { get; }
         }
-
         public class TheBuildRulesPredicateMethodTests
         {
             private readonly IQueryBuilder<QueryTestClass> queryBuilder;
@@ -142,7 +141,6 @@ namespace GenericQuerySystemTests.Unit
                 Assert.Equal(_testData.Count(x => x.Number == 5 && x.Number == 6), _testData.Count(x => resultPredicate(x)));
             }
         }
-
         public class TheBuildOrPredicateMethodTest
         {
             private readonly IQueryBuilder<QueryTestClass> queryBuilder;
@@ -188,7 +186,6 @@ namespace GenericQuerySystemTests.Unit
                 Assert.Equal(_testData.Count(x => x.Number == 5 || x.Number == 6), _testData.Count(x => resultPredicate(x)));
             }
         }
-
         public class TheBuildGroupPredicateMethodTests
         {
             private readonly IQueryBuilder<QueryTestClass> queryBuilder;
@@ -288,7 +285,6 @@ namespace GenericQuerySystemTests.Unit
                 Assert.Equal(_testData.Count(x => !x.Yes && ((x.Number == 5 && x.Text.Contains("ane")) || x.Number == 20)), _testData.Count(x => result(x)));
             }
         }
-
         public class TheBuildGroupsPredicateMethodTests
         {
             private readonly IQueryBuilder<QueryTestClass> queryBuilder;
