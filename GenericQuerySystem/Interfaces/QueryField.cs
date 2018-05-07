@@ -1,21 +1,18 @@
-﻿using System.Diagnostics.Contracts;
+﻿using GenericQuerySystem.Utils;
 
-namespace GenericQuerySystem.DTOs
+namespace GenericQuerySystem.Interfaces
 {
     public abstract class QueryField
     {
-        public QueryField(
-            string name, 
+        protected QueryField(
+            string name,
             string type)
         {
-            Contract.Requires(string.IsNullOrEmpty(name) == false);
-            Contract.Requires(string.IsNullOrEmpty(type) == false);
+            ConditionChecker.Requires(string.IsNullOrEmpty(name) == false);
+            ConditionChecker.Requires(string.IsNullOrEmpty(type) == false);
             this.Name = name;
             this.Type = type;
         }
-
-        // Mocking
-        protected QueryField() {}
 
         public string Name { get; set; }
 

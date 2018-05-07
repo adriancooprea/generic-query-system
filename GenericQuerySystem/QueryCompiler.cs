@@ -1,10 +1,10 @@
 ﻿using System;
-using System.Diagnostics.Contracts;
 using System.Linq.Expressions;
 using System.Reflection;
 using GenericQuerySystem.DTOs;
 using GenericQuerySystem.Extensions;
 using GenericQuerySystem.Interfaces;
+using GenericQuerySystem.Utils;
 
 namespace GenericQuerySystem
 {
@@ -12,7 +12,7 @@ namespace GenericQuerySystem
     {
         public Predicate<T> CompileRule(QueryRule queryRule)
         {
-            Contract.Requires(queryRule != null, "Query Rule cannot be null.");
+            ConditionChecker.Requires(queryRule != null, "Query Rule cannot be null.");
 
             // When migrating the database, some fields of the old DTO might be missing.
             if (!typeof(T).HasProperty(queryRule.Field))
@@ -65,7 +65,7 @@ namespace GenericQuerySystem
             return Expression.Lambda<Predicate<T>>(expression, targetedType).Compile();
         }
 
-        static MethodInfo GetQueriedMethod(QueryRule queryRule, Type propertyType)
+        private static MethodInfo GetQueriedMethod(QueryRule queryRule, Type propertyType)
         {
             var method = propertyType.GetMethod(
                 queryRule.Condition, new[] { propertyType });
@@ -73,7 +73,7 @@ namespace GenericQuerySystem
             return method;
         }
 
-        static ConstantExpression GetQueriedValue(QueryRule queryRule, Type propertyType)
+        private static ConstantExpression GetQueriedValue(QueryRule queryRule, Type propertyType)
         {
             ConstantExpression queriedValue;
             if (propertyType.IsEnum)
@@ -96,7 +96,7 @@ namespace GenericQuerySystem
             return queriedValue;
         }
 
-        static ConstantExpression GetRightMember(QueryRule queryRule, MethodInfo queriedMethod)
+        private static ConstantExpression GetRightMember(QueryRule queryRule, MethodInfo queriedMethod)
         {
             var methodParameterType = queriedMethod.GetParameters()[0].ParameterType;
             return Expression.Constant(Convert.ChangeType(queryRule.Value, methodParameterType));

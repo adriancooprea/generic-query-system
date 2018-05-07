@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Diagnostics.Contracts;
 using System.Linq;
 using GenericQuerySystem;
 using GenericQuerySystem.DTOs;
@@ -104,16 +103,16 @@ namespace GenericQuerySystemTests.Unit
                                                         "Number",
                                                         "Equal",
                                                         "10",
-                            GenericQuerySystem.Enums.LogicalOperation.OR),
+                            GenericQuerySystem.Enums.LogicalOperation.Or),
                                                     new QueryRule(
                                                         "Text",
                                                         "Contains",
                                                         "cirese",
-                                                        GenericQuerySystem.Enums.LogicalOperation.AND),
+                                                        GenericQuerySystem.Enums.LogicalOperation.And),
 
                 };
 
-                var group = new QueryGroup(rules, new List<QueryGroup>(), LogicalOperation.AND);
+                var group = new QueryGroup(rules, new List<QueryGroup>(), LogicalOperation.And);
 
                 var predicate = queryBuilder.BuildRulesPredicate(group.Rules);
 
@@ -248,7 +247,7 @@ namespace GenericQuerySystemTests.Unit
                 group3.Rules.Add(new QueryRule("Text", "Contains", "ane"));
 
                 var group4 = new QueryGroup();
-                group4.LogicalOperation = LogicalOperation.OR;
+                group4.LogicalOperation = LogicalOperation.Or;
                 group4.Rules.Add(new QueryRule("Number", "Equal", "3"));
 
                 // Act
@@ -336,14 +335,14 @@ namespace GenericQuerySystemTests.Unit
                 group3.Rules.Add(new QueryRule("Number", "Equal", "5"));
 
                 // Arrange - or groups
-                var group4 = new QueryGroup { LogicalOperation = LogicalOperation.OR };
+                var group4 = new QueryGroup { LogicalOperation = LogicalOperation.Or };
                 group4.Rules.Add(new QueryRule("Number", "Equal", "20"));
                 group4.Rules.Add(new QueryRule("Text", "Contains", "ane"));
 
-                var group5 = new QueryGroup { LogicalOperation = LogicalOperation.OR };
+                var group5 = new QueryGroup { LogicalOperation = LogicalOperation.Or };
                 group5.Rules.Add(new QueryRule("Number", "Equal", "3"));
 
-                var group6 = new QueryGroup { LogicalOperation = LogicalOperation.AND };
+                var group6 = new QueryGroup { LogicalOperation = LogicalOperation.And };
                 group6.Rules.Add(new QueryRule("Number", "Equal", "5"));
 
                 // Act

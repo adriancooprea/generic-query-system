@@ -2,7 +2,7 @@
 {
     public enum LogicalOperation
     {
-        AND = 0,
-        OR = 1
+        And = 0,
+        Or = 1
     }
 }

@@ -5,16 +5,16 @@ namespace GenericQuerySystem.DTOs
 {
     public class QueryGroup
     {
-        public QueryGroup(List<QueryRule> rules, List<QueryGroup> innerGroups, LogicalOperation logicalOperation)
+        public QueryGroup(IList<QueryRule> rules, IList<QueryGroup> innerGroups, LogicalOperation logicalOperation)
         {
             this.Rules = rules;
             this.InnerGroups = innerGroups;
             this.LogicalOperation = logicalOperation;
         }
 
-        public QueryGroup(List<QueryRule> rules) : this(rules, new List<QueryGroup>(), LogicalOperation.AND) {}
+        public QueryGroup(IList<QueryRule> rules) : this(rules, new List<QueryGroup>(), LogicalOperation.And) {}
 
-        public QueryGroup() : this(new List<QueryRule>(), new List<QueryGroup>(), LogicalOperation.AND) {}
+        public QueryGroup() : this(new List<QueryRule>(), new List<QueryGroup>(), LogicalOperation.And) {}
 
         public long Id { get; set; }
 

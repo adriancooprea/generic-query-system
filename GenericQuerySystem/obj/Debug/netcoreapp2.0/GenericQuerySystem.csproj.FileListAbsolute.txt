@@ -9,3 +9,14 @@
 /Users/adrianoprea/Projects/GenericQuerySystem/GenericQuerySystem/bin/Debug/netcoreapp2.0/GenericQuerySystem.pdb
 /Users/adrianoprea/Projects/GenericQuerySystem/GenericQuerySystem/obj/Debug/netcoreapp2.0/GenericQuerySystem.dll
 /Users/adrianoprea/Projects/GenericQuerySystem/GenericQuerySystem/obj/Debug/netcoreapp2.0/GenericQuerySystem.pdb
+C:\Github\generic-query-system\GenericQuerySystem\bin\Debug\netcoreapp2.0\GenericQuerySystem.deps.json
+C:\Github\generic-query-system\GenericQuerySystem\bin\Debug\netcoreapp2.0\GenericQuerySystem.runtimeconfig.json
+C:\Github\generic-query-system\GenericQuerySystem\bin\Debug\netcoreapp2.0\GenericQuerySystem.runtimeconfig.dev.json
+C:\Github\generic-query-system\GenericQuerySystem\bin\Debug\netcoreapp2.0\GenericQuerySystem.dll
+C:\Github\generic-query-system\GenericQuerySystem\bin\Debug\netcoreapp2.0\GenericQuerySystem.pdb
+C:\Github\generic-query-system\GenericQuerySystem\obj\Debug\netcoreapp2.0\GenericQuerySystem.csprojResolveAssemblyReference.cache
+C:\Github\generic-query-system\GenericQuerySystem\obj\Debug\netcoreapp2.0\GenericQuerySystem.csproj.CoreCompileInputs.cache
+C:\Github\generic-query-system\GenericQuerySystem\obj\Debug\netcoreapp2.0\GenericQuerySystem.AssemblyInfoInputs.cache
+C:\Github\generic-query-system\GenericQuerySystem\obj\Debug\netcoreapp2.0\GenericQuerySystem.AssemblyInfo.cs
+C:\Github\generic-query-system\GenericQuerySystem\obj\Debug\netcoreapp2.0\GenericQuerySystem.dll
+C:\Github\generic-query-system\GenericQuerySystem\obj\Debug\netcoreapp2.0\GenericQuerySystem.pdb

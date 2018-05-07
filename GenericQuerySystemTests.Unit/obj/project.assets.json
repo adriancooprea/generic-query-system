@@ -1663,6 +1663,9 @@
       "GenericQuerySystem/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v2.0",
+        "dependencies": {
+          "Microsoft.NETCore.App": "2.0.0"
+        },
         "compile": {
           "bin/placeholder/GenericQuerySystem.dll": {}
         },
@@ -5631,35 +5634,40 @@
     ]
   },
   "packageFolders": {
-    "/Users/adrianoprea/.nuget/packages/": {},
-    "/usr/local/share/dotnet/sdk/NuGetFallbackFolder": {}
+    "C:\\Users\\adria\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/adrianoprea/Projects/GenericQuerySystem/GenericQuerySystemTests.Unit/GenericQuerySystemTests.Unit.csproj",
+      "projectUniqueName": "C:\\Github\\generic-query-system\\GenericQuerySystemTests.Unit\\GenericQuerySystemTests.Unit.csproj",
       "projectName": "GenericQuerySystemTests.Unit",
-      "projectPath": "/Users/adrianoprea/Projects/GenericQuerySystem/GenericQuerySystemTests.Unit/GenericQuerySystemTests.Unit.csproj",
-      "packagesPath": "/Users/adrianoprea/.nuget/packages/",
-      "outputPath": "/Users/adrianoprea/Projects/GenericQuerySystem/GenericQuerySystemTests.Unit/obj",
+      "projectPath": "C:\\Github\\generic-query-system\\GenericQuerySystemTests.Unit\\GenericQuerySystemTests.Unit.csproj",
+      "packagesPath": "C:\\Users\\adria\\.nuget\\packages\\",
+      "outputPath": "C:\\Github\\generic-query-system\\GenericQuerySystemTests.Unit\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\",
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "/Users/adrianoprea/.config/NuGet/NuGet.Config"
+        "C:\\Users\\adria\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.Fallback.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "netcoreapp2.0": {
           "projectReferences": {
-            "/Users/adrianoprea/Projects/GenericQuerySystem/GenericQuerySystem/GenericQuerySystem.csproj": {
-              "projectPath": "/Users/adrianoprea/Projects/GenericQuerySystem/GenericQuerySystem/GenericQuerySystem.csproj"
+            "C:\\Github\\generic-query-system\\GenericQuerySystem\\GenericQuerySystem.csproj": {
+              "projectPath": "C:\\Github\\generic-query-system\\GenericQuerySystem\\GenericQuerySystem.csproj"
             }
           }
         }
@@ -5673,23 +5681,22 @@
     "frameworks": {
       "netcoreapp2.0": {
         "dependencies": {
-          "Microsoft.NETCore.App": {
-            "suppressParent": "All",
-            "target": "Package",
-            "version": "2.0",
-            "autoReferenced": true
-          },
           "Microsoft.NET.Test.Sdk": {
             "target": "Package",
-            "version": "15.3.0-preview-20170628-02"
+            "version": "[15.3.0-preview-20170628-02, )"
+          },
+          "Microsoft.NETCore.App": {
+            "target": "Package",
+            "version": "[2.0.0, )",
+            "autoReferenced": true
           },
           "xunit": {
             "target": "Package",
-            "version": "2.2.0"
+            "version": "[2.2.0, )"
           },
           "xunit.runner.visualstudio": {
             "target": "Package",
-            "version": "2.2.0"
+            "version": "[2.2.0, )"
           }
         },
         "imports": [

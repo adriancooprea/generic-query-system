@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Diagnostics.Contracts;
 using System.Linq;
 using GenericQuerySystem.DTOs;
 using GenericQuerySystem.Enums;
 using GenericQuerySystem.Interfaces;
+using GenericQuerySystem.Utils;
 
 namespace GenericQuerySystem
 {
@@ -20,8 +20,7 @@ namespace GenericQuerySystem
 
         public Predicate<T> BuildOrPredicate(Predicate<T> leftPredicate, Predicate<T> rightPredicate)
         {
-            Contract.Requires(leftPredicate != null || rightPredicate != null, "At least one predicate must not be null.");
-
+            ConditionChecker.Requires(leftPredicate != null || rightPredicate != null, "At least one predicate must not be null.");
             if (leftPredicate == null)
             {
                 return rightPredicate;
@@ -36,7 +35,7 @@ namespace GenericQuerySystem
 
         public Predicate<T> BuildAndPredicate(Predicate<T> leftPredicate, Predicate<T> rightPredicate)
         {
-            Contract.Requires(leftPredicate != null || rightPredicate != null, "At least one predicate must not be null.");
+            ConditionChecker.Requires(leftPredicate != null || rightPredicate != null, "At least one predicate must not be null.");
 
             if (leftPredicate == null)
             {
@@ -65,7 +64,7 @@ namespace GenericQuerySystem
                     (current, rule) =>
                     {
                         var compiledRule = _queryCompiler.CompileRule(rule);
-                        if (rule.LogicalOperation == LogicalOperation.AND)
+                        if (rule.LogicalOperation == LogicalOperation.And)
                         {
                             return BuildAndPredicate(current, item => compiledRule(item));
                         }
@@ -84,7 +83,7 @@ namespace GenericQuerySystem
 
         public Predicate<T> BuildGroupPredicate(QueryGroup queryGroup)
         {
-            Contract.Requires(queryGroup != null, "Query group cannot be null.");
+            ConditionChecker.Requires(queryGroup != null, "Query group cannot be null.");
 
             if (!queryGroup.HasChildren)
             {
@@ -105,7 +104,7 @@ namespace GenericQuerySystem
                     groupChildrenPredicate,
                     (current, group) =>
                     {
-                    if (group.LogicalOperation == LogicalOperation.AND)
+                    if (group.LogicalOperation == LogicalOperation.And)
                         {
                             return BuildAndPredicate(current, BuildGroupPredicate(@group));
                         }
@@ -114,21 +113,19 @@ namespace GenericQuerySystem
                     });
             }
 
-            if (groupPredicate != null)
-            {
-                if (queryGroup.InnerGroups[0].LogicalOperation == LogicalOperation.AND)
-                {
-                    return BuildAndPredicate(groupPredicate, groupChildrenPredicate);
-                }
+            if (groupPredicate == null) return item => groupChildrenPredicate(item);
 
-                return BuildOrPredicate(groupPredicate, groupChildrenPredicate);
+            if (queryGroup.InnerGroups[0].LogicalOperation == LogicalOperation.And)
+            {
+                return BuildAndPredicate(groupPredicate, groupChildrenPredicate);
             }
-            return item => groupChildrenPredicate(item);
+
+            return BuildOrPredicate(groupPredicate, groupChildrenPredicate);
         }
 
         public Predicate<T> BuildGroupsPredicate(IList<QueryGroup> queryGroups)
         {
-            Contract.Requires(queryGroups != null && queryGroups.Count > 0, "Query groups cannot be null or empty.");
+            ConditionChecker.Requires(queryGroups != null && queryGroups.Count > 0, "Query groups cannot be null or empty.");
 
             var groupsPredicate = BuildGroupPredicate(queryGroups[0]);
             if (queryGroups.Count > 1)
@@ -137,7 +134,7 @@ namespace GenericQuerySystem
                     groupsPredicate,
                     (current, group) =>
                     {
-                    if (group.LogicalOperation == LogicalOperation.AND)
+                    if (group.LogicalOperation == LogicalOperation.And)
                     {
                         return BuildAndPredicate(current, BuildGroupPredicate(@group));
                     }

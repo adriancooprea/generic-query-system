@@ -1,5 +1,5 @@
-﻿using System.Diagnostics.Contracts;
-using GenericQuerySystem.Enums;
+﻿using GenericQuerySystem.Enums;
+using GenericQuerySystem.Utils;
 
 namespace GenericQuerySystem.DTOs
 {
@@ -8,9 +8,9 @@ namespace GenericQuerySystem.DTOs
         public QueryRule(string field, string condition, string value, LogicalOperation logicalOperation)
         {
 
-            Contract.Requires(string.IsNullOrEmpty(field) == false);
-            Contract.Requires(string.IsNullOrEmpty(condition) == false);
-            Contract.Requires(string.IsNullOrEmpty(value) == false);
+            ConditionChecker.Requires(string.IsNullOrEmpty(field) == false);
+            ConditionChecker.Requires(string.IsNullOrEmpty(condition) == false);
+            ConditionChecker.Requires(string.IsNullOrEmpty(value) == false);
 
             Field = field;
             Condition = condition;
@@ -18,10 +18,7 @@ namespace GenericQuerySystem.DTOs
             LogicalOperation = logicalOperation;
         }
 
-        public QueryRule(string field, string condition, string value) : this(field, condition, value, LogicalOperation.AND) {}
-
-        // Mocking
-        protected QueryRule() {}
+        public QueryRule(string field, string condition, string value) : this(field, condition, value, LogicalOperation.And) {}
 
         public long Id { get; set; }
 

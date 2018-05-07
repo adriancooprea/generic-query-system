@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
-using System.Diagnostics.Contracts;
+using GenericQuerySystem.Interfaces;
+using GenericQuerySystem.Utils;
 
 namespace GenericQuerySystem.DTOs
 {
@@ -10,12 +11,9 @@ namespace GenericQuerySystem.DTOs
             string type, 
             IList<KeyValuePair<string, object>> values) : base(name, type)
         {
-            Contract.Requires(values != null);
+            ConditionChecker.Requires(values != null);
             this.Values = values;
         }
-
-        // Mocking
-        protected MultipleValuesQueryField() {}
 
         public IList<KeyValuePair<string, object>> Values { get; set; }
     }
