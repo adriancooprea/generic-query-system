@@ -8,9 +8,13 @@ using GenericQuerySystem.Utils;
 
 namespace GenericQuerySystem
 {
-    public class QueryCompiler<T> : IQueryCompiler<T> where T : class
+    internal class QueryCompiler<T> : IQueryCompiler<T> where T : class
     {
-        public Predicate<T> CompileRule(QueryRule queryRule)
+        public QueryCompiler()
+        {
+        }
+
+        Predicate<T> IQueryCompiler<T>.CompileRule(QueryRule queryRule)
         {
             ConditionChecker.Requires(queryRule != null, "Query Rule cannot be null.");
 
@@ -33,7 +37,7 @@ namespace GenericQuerySystem
             Expression expression;
 
             // The given rule is binary(aka : equal, less than , gte, etc.)
-            if (Enum.TryParse(queryRule.Condition, out ExpressionType binaryOperator))
+            if (Enum.TryParse(Operations.Get(queryRule.FieldOperation), out ExpressionType binaryOperator))
             {
                 var queriedValue = GetQueriedValue(queryRule, propertyType);
                 expression = Expression.MakeBinary(binaryOperator, leftMember, queriedValue);
@@ -52,9 +56,10 @@ namespace GenericQuerySystem
                 if (propertyType == typeof(string))
                 {
                     var toLowerMethodInfo = typeof(string).GetMethod("ToLower", new Type[] { });
-                    Expression toLowerCall = Expression.Call(leftMember, toLowerMethodInfo ?? throw new MissingMethodException());
+                    Expression leftMemberLowerCase = Expression.Call(leftMember, toLowerMethodInfo ?? throw new MissingMethodException());
+                    Expression rightMemberLowerCase = Expression.Call(rightMember, toLowerMethodInfo ?? throw new MissingMethodException());
 
-                    expression = Expression.Call(toLowerCall, queriedMethod, rightMember);
+                    expression = Expression.Call(leftMemberLowerCase, queriedMethod, rightMemberLowerCase);
                 }
                 else
                 {
@@ -68,7 +73,9 @@ namespace GenericQuerySystem
         private static MethodInfo GetQueriedMethod(QueryRule queryRule, Type propertyType)
         {
             var method = propertyType.GetMethod(
-                queryRule.Condition, new[] { propertyType });
+                Operations.Get(queryRule.FieldOperation),
+                new[] { propertyType }
+                );
 
             return method;
         }
@@ -78,15 +85,15 @@ namespace GenericQuerySystem
             ConstantExpression queriedValue;
             if (propertyType.IsEnum)
             {
-                queriedValue = Expression.Constant(Enum.Parse(propertyType, queryRule.Value));
+                queriedValue = Expression.Constant(Enum.Parse(propertyType, queryRule.Value.ToString()));
             }
             else if (propertyType == typeof(TimeSpan))
             {
-                queriedValue = Expression.Constant(TimeSpan.Parse(queryRule.Value));
+                queriedValue = Expression.Constant(TimeSpan.Parse(queryRule.Value.ToString()));
             }
             else if (propertyType == typeof(string))
             {
-                queriedValue = Expression.Constant(Convert.ChangeType(queryRule.Value.Trim().ToLower(), propertyType));
+                queriedValue = Expression.Constant(Convert.ChangeType(queryRule.Value.ToString().Trim().ToLower(), propertyType));
             }
             else
             {

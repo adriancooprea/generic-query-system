@@ -8,16 +8,17 @@ using GenericQuerySystem.Utils;
 
 namespace GenericQuerySystem
 {
-    public class QueryFilterEngine<T> : IQueryFilterEngine<T> where T : class
+    internal class QueryFilterEngine<T> : IQueryFilterEngine<T> where T : class
     {
         private readonly IQueryBuilder<T> _queryBuilder;
+
         public QueryFilterEngine(
             IQueryBuilder<T> queryBuilder)
         {
             _queryBuilder = queryBuilder;
         }
 
-        public IEnumerable<T> FilterCollection(IEnumerable<T> collection, QueryGroup queryGroup)
+        IEnumerable<T> IQueryFilterEngine<T>.FilterCollection(IEnumerable<T> collection, QueryGroup queryGroup)
         {
             if (!queryGroup.HasChildren && queryGroup.Rules.Count <= 0) return collection;
 
@@ -26,10 +27,11 @@ namespace GenericQuerySystem
             return collection.Where(x => predicate(x));
         }
 
-        public IEnumerable<T> SortCollection(IEnumerable<T> collection, IList<QuerySorter> querySorters)
+        IEnumerable<T> IQueryFilterEngine<T>.SortCollection(IEnumerable<T> collection, QueryGroup queryGroup)
         {
             ConditionChecker.Requires(collection != null, "Occurrences list cannot be null.");
 
+            var querySorters = queryGroup.SortingRules;
             if (querySorters == null || querySorters.Count == 0)
             {
                 return collection;
@@ -53,7 +55,7 @@ namespace GenericQuerySystem
             return result;
         }
 
-        public IEnumerable<dynamic> FilterFields(IEnumerable<T> collection, string[] fields)
+        IEnumerable<dynamic> IQueryFilterEngine<T>.FilterFields(IEnumerable<T> collection, string[] fields)
         {
             if (fields == null || fields.Length == 0)
             {

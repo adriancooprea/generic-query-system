@@ -25,6 +25,7 @@ namespace GenericQuerySystemTests.Unit
 
             public string Text { get; }
         }
+
         public class TheBuildRulesPredicateMethodTests
         {
             private readonly IQueryBuilder<QueryTestClass> queryBuilder;
@@ -51,8 +52,8 @@ namespace GenericQuerySystemTests.Unit
 
                 _ruleList = new List<QueryRule>
                                 {
-                                    new QueryRule("Number", "Equal", "5"),
-                                    new QueryRule("Text", "Contains", "ere")
+                                    new QueryRule("Number", FieldOperation.Equal, "5"),
+                                    new QueryRule("Text", FieldOperation.Contains, "ere")
                                 };
             }
 
@@ -62,8 +63,8 @@ namespace GenericQuerySystemTests.Unit
                 // Act
                 var result = queryBuilder.BuildRulesPredicate(new List<QueryRule>
                 {
-                    new QueryRule("Number", "Equal", "7"),
-                    new QueryRule("Text", "Contains", "ere")
+                    new QueryRule("Number", FieldOperation.Equal, "7"),
+                    new QueryRule("Text", FieldOperation.Contains, "ere")
                 });
 
                 var filteredData = _testData.Where(x => result(x));
@@ -80,8 +81,8 @@ namespace GenericQuerySystemTests.Unit
                 var badResult = queryBuilder.BuildRulesPredicate(
                     new List<QueryRule>
                         {
-                            new QueryRule("Number", "Equal", "5"),
-                            new QueryRule("Number", "Equal", "6")
+                            new QueryRule("Number", FieldOperation.Equal, "5"),
+                            new QueryRule("Number", FieldOperation.Equal, "6")
                         });
 
                 var filteredData = _testData.Where(x => result(x));
@@ -97,18 +98,17 @@ namespace GenericQuerySystemTests.Unit
             {
                 // Arrange
                 var rules = new List<QueryRule>{
-                    new QueryRule("Number", "Equal", "5", 0),
+                    new QueryRule("Number", FieldOperation.Equal, "5", 0),
                                                     new QueryRule(
                                                         "Number",
-                                                        "Equal",
+                                                        FieldOperation.Equal,
                                                         "10",
                             GenericQuerySystem.Enums.LogicalOperation.Or),
                                                     new QueryRule(
                                                         "Text",
-                                                        "Contains",
+                                                        FieldOperation.Contains,
                                                         "cirese",
                                                         GenericQuerySystem.Enums.LogicalOperation.And),
-
                 };
 
                 var group = new QueryGroup(rules, new List<QueryGroup>(), LogicalOperation.And);
@@ -141,6 +141,7 @@ namespace GenericQuerySystemTests.Unit
                 Assert.Equal(_testData.Count(x => x.Number == 5 && x.Number == 6), _testData.Count(x => resultPredicate(x)));
             }
         }
+
         public class TheBuildOrPredicateMethodTest
         {
             private readonly IQueryBuilder<QueryTestClass> queryBuilder;
@@ -167,8 +168,8 @@ namespace GenericQuerySystemTests.Unit
 
                 _ruleList = new List<QueryRule>
                                 {
-                                    new QueryRule("Number", "Equal", "5"),
-                                    new QueryRule("Text", "Contains", "ere")
+                                    new QueryRule("Number", FieldOperation.Equal, "5"),
+                                    new QueryRule("Text", FieldOperation.Contains, "ere")
                                 };
             }
 
@@ -186,6 +187,7 @@ namespace GenericQuerySystemTests.Unit
                 Assert.Equal(_testData.Count(x => x.Number == 5 || x.Number == 6), _testData.Count(x => resultPredicate(x)));
             }
         }
+
         public class TheBuildGroupPredicateMethodTests
         {
             private readonly IQueryBuilder<QueryTestClass> queryBuilder;
@@ -212,8 +214,8 @@ namespace GenericQuerySystemTests.Unit
 
                 _ruleList = new List<QueryRule>
                                 {
-                                    new QueryRule("Number", "Equal", "5"),
-                                    new QueryRule("Text", "Contains", "ere")
+                                    new QueryRule("Number", FieldOperation.Equal, "5"),
+                                    new QueryRule("Text", FieldOperation.Contains, "ere")
                                 };
             }
 
@@ -232,20 +234,20 @@ namespace GenericQuerySystemTests.Unit
             {
                 // Arrange - and example
                 var group1 = new QueryGroup();
-                group1.Rules.Add(new QueryRule("Number", "Equal", "20"));
-                group1.Rules.Add(new QueryRule("Text", "Contains", "ane"));
+                group1.Rules.Add(new QueryRule("Number", FieldOperation.Equal, "20"));
+                group1.Rules.Add(new QueryRule("Text", FieldOperation.Contains, "ane"));
 
                 var group2 = new QueryGroup();
-                group2.Rules.Add(new QueryRule("Number", "Equal", "3"));
+                group2.Rules.Add(new QueryRule("Number", FieldOperation.Equal, "3"));
 
                 // Arrange - or example
                 var group3 = new QueryGroup();
-                group3.Rules.Add(new QueryRule("Number", "Equal", "20"));
-                group3.Rules.Add(new QueryRule("Text", "Contains", "ane"));
+                group3.Rules.Add(new QueryRule("Number", FieldOperation.Equal, "20"));
+                group3.Rules.Add(new QueryRule("Text", FieldOperation.Contains, "ane"));
 
                 var group4 = new QueryGroup();
                 group4.LogicalOperation = LogicalOperation.Or;
-                group4.Rules.Add(new QueryRule("Number", "Equal", "3"));
+                group4.Rules.Add(new QueryRule("Number", FieldOperation.Equal, "3"));
 
                 // Act
                 var resultAnd = queryBuilder.BuildGroupPredicate(
@@ -264,11 +266,11 @@ namespace GenericQuerySystemTests.Unit
             {
                 // Arrange
                 var group1 = new QueryGroup();
-                group1.Rules.Add(new QueryRule("Number", "Equal", "20"));
-                group1.Rules.Add(new QueryRule("Text", "Contains", "ane"));
+                group1.Rules.Add(new QueryRule("Number", FieldOperation.Equal, "20"));
+                group1.Rules.Add(new QueryRule("Text", FieldOperation.Contains, "ane"));
 
                 var group2 = new QueryGroup();
-                group2.Rules.Add(new QueryRule("Number", "Equal", "3"));
+                group2.Rules.Add(new QueryRule("Number", FieldOperation.Equal, "3"));
 
                 // Act
                 var result = queryBuilder.BuildGroupPredicate(
@@ -277,7 +279,7 @@ namespace GenericQuerySystemTests.Unit
                         InnerGroups = new List<QueryGroup> { group1, group2 },
                         Rules = new List<QueryRule>
                                         {
-                                            new QueryRule("Yes", "Equal", "false")
+                                            new QueryRule("Yes", FieldOperation.Equal, "false")
                                         }
                     });
 
@@ -285,6 +287,7 @@ namespace GenericQuerySystemTests.Unit
                 Assert.Equal(_testData.Count(x => !x.Yes && ((x.Number == 5 && x.Text.Contains("ane")) || x.Number == 20)), _testData.Count(x => result(x)));
             }
         }
+
         public class TheBuildGroupsPredicateMethodTests
         {
             private readonly IQueryBuilder<QueryTestClass> queryBuilder;
@@ -311,8 +314,8 @@ namespace GenericQuerySystemTests.Unit
 
                 _ruleList = new List<QueryRule>
                                 {
-                                    new QueryRule("Number", "Equal", "5"),
-                                    new QueryRule("Text", "Contains", "ere")
+                                    new QueryRule("Number", FieldOperation.Equal, "5"),
+                                    new QueryRule("Text", FieldOperation.Contains, "ere")
                                 };
             }
 
@@ -321,31 +324,31 @@ namespace GenericQuerySystemTests.Unit
             {
                 // Arrange - and groups
                 var group1 = new QueryGroup();
-                group1.Rules.Add(new QueryRule("Number", "Equal", "20"));
-                group1.Rules.Add(new QueryRule("Text", "Contains", "ane"));
+                group1.Rules.Add(new QueryRule("Number", FieldOperation.Equal, "20"));
+                group1.Rules.Add(new QueryRule("Text", FieldOperation.Contains, "ane"));
 
                 var group2 = new QueryGroup();
-                group2.Rules.Add(new QueryRule("Number", "Equal", "3"));
+                group2.Rules.Add(new QueryRule("Number", FieldOperation.Equal, "3"));
 
                 var group3 = new QueryGroup();
-                group3.Rules.Add(new QueryRule("Number", "Equal", "5"));
+                group3.Rules.Add(new QueryRule("Number", FieldOperation.Equal, "5"));
 
                 // Arrange - or groups
                 var group4 = new QueryGroup { LogicalOperation = LogicalOperation.Or };
-                group4.Rules.Add(new QueryRule("Number", "Equal", "20"));
-                group4.Rules.Add(new QueryRule("Text", "Contains", "ane"));
+                group4.Rules.Add(new QueryRule("Number", FieldOperation.Equal, "20"));
+                group4.Rules.Add(new QueryRule("Text", FieldOperation.Contains, "ane"));
 
                 var group5 = new QueryGroup { LogicalOperation = LogicalOperation.Or };
-                group5.Rules.Add(new QueryRule("Number", "Equal", "3"));
+                group5.Rules.Add(new QueryRule("Number", FieldOperation.Equal, "3"));
 
                 var group6 = new QueryGroup { LogicalOperation = LogicalOperation.And };
-                group6.Rules.Add(new QueryRule("Number", "Equal", "5"));
+                group6.Rules.Add(new QueryRule("Number", FieldOperation.Equal, "5"));
 
                 // Act
                 var resultAnd = queryBuilder.BuildGroupPredicate(
                     new QueryGroup
                     {
-                    InnerGroups = new List<QueryGroup>
+                        InnerGroups = new List<QueryGroup>
                         {
                             new QueryGroup
                             {
@@ -369,7 +372,7 @@ namespace GenericQuerySystemTests.Unit
                 var resultOr = queryBuilder.BuildGroupPredicate(
                     new QueryGroup
                     {
-                    InnerGroups = new List<QueryGroup>
+                        InnerGroups = new List<QueryGroup>
                                               {
                                                   new QueryGroup
                                                       {

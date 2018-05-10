@@ -612,6 +612,19 @@
           "lib/netstandard1.0/_._": {}
         }
       },
+      "SimpleInjector/4.2.2": {
+        "type": "package",
+        "dependencies": {
+          "NETStandard.Library": "1.6.0",
+          "System.ComponentModel": "4.0.1"
+        },
+        "compile": {
+          "lib/netstandard1.3/SimpleInjector.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.3/SimpleInjector.dll": {}
+        }
+      },
       "System.AppContext/4.1.0": {
         "type": "package",
         "dependencies": {
@@ -1663,6 +1676,9 @@
       "GenericQuerySystem/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v2.0",
+        "dependencies": {
+          "SimpleInjector": "4.2.2"
+        },
         "compile": {
           "bin/placeholder/GenericQuerySystem.dll": {}
         },
@@ -2457,6 +2473,23 @@
         "lib/netstandard1.0/_._",
         "runtime.native.system.4.3.0.nupkg.sha512",
         "runtime.native.system.nuspec"
+      ]
+    },
+    "SimpleInjector/4.2.2": {
+      "sha512": "ZhzK8smGLZ5EBd5IWJ4Zuwmi3qmYmlCsqwtTh5l2O8WUDpGLVmkuPRaQWx5eMiwD9QthStEtsx3GHxRB1fQpCQ==",
+      "type": "package",
+      "path": "simpleinjector/4.2.2",
+      "files": [
+        "lib/net40/SimpleInjector.dll",
+        "lib/net40/SimpleInjector.xml",
+        "lib/net45/SimpleInjector.dll",
+        "lib/net45/SimpleInjector.xml",
+        "lib/netstandard1.0/SimpleInjector.dll",
+        "lib/netstandard1.0/SimpleInjector.xml",
+        "lib/netstandard1.3/SimpleInjector.dll",
+        "lib/netstandard1.3/SimpleInjector.xml",
+        "simpleinjector.4.2.2.nupkg.sha512",
+        "simpleinjector.nuspec"
       ]
     },
     "System.AppContext/4.1.0": {

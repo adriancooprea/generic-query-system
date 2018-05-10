@@ -6,9 +6,9 @@ using System.Reflection;
 
 namespace GenericQuerySystem.Extensions
 {
-    public static class TypeExtensions
+    internal static class TypeExtensions
     {
-        public static bool HasProperty(this Type type, string propertyName)
+        internal static bool HasProperty(this Type type, string propertyName)
         {
             return type.GetProperties(BindingFlags.Public | BindingFlags.Instance).Any(x => x.Name == propertyName.Replace(" ", string.Empty));
         }
@@ -18,7 +18,7 @@ namespace GenericQuerySystem.Extensions
             return type.GetProperty(propertyName) != null;
         }
 
-        public static PropertyInfo GetPropertyInfo(this Type type, string propertyName)
+        internal static PropertyInfo GetPropertyInfo(this Type type, string propertyName)
         {
             if (!type.HasPublicProperty(propertyName))
             {
@@ -28,7 +28,7 @@ namespace GenericQuerySystem.Extensions
             return type.GetProperty(propertyName);
         }
 
-        public static object GetPropertiesAsObject<T>(this Type type, IEnumerable<string> properties, T sourceObj)
+        internal static object GetPropertiesAsObject<T>(this Type type, IEnumerable<string> properties, T sourceObj)
         {
             var expandoObj = new ExpandoObject();
             foreach (var field in properties)
@@ -71,7 +71,7 @@ namespace GenericQuerySystem.Extensions
             return value;
         }
 
-        public static object GetPropertyValue(this Type type, string propertyName, object sourceObj)
+        internal static object GetPropertyValue(this Type type, string propertyName, object sourceObj)
         {
             var propertyNameString = propertyName.Trim().Replace(" ", "");
 

@@ -8,7 +8,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\GenericQuerySystem\GenericQuerySystem.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="xunit.assert">
+      <HintPath>..\..\..\Users\adria\.nuget\packages\xunit.assert\2.2.0\lib\netstandard1.1\xunit.assert.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>

@@ -4,7 +4,7 @@ using GenericQuerySystem.DTOs;
 
 namespace GenericQuerySystem.Interfaces
 {
-    public interface IQueryBuilder<T> where T : class
+    interface IQueryBuilder<T> where T : class
     {
         Predicate<T> BuildAndPredicate(Predicate<T> leftPredicate, Predicate<T> rightPredicate);
 

@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Linq.Expressions;
 using GenericQuerySystem;
 using GenericQuerySystem.DTOs;
+using GenericQuerySystem.Enums;
 using GenericQuerySystem.Interfaces;
 using Xunit;
 
@@ -47,15 +47,7 @@ namespace GenericQuerySystemTests.Unit
             {
                 // Act & Assert
                 Assert.Null(_queryCompiler.CompileRule(
-                    new QueryRule("BadField", "Equal", "5")));
-            }
-
-            [Fact]
-            public void Should_return_null_if_the_method_passed_is_not_valid()
-            {
-                // Act & Assert
-                Assert.Null(_queryCompiler.CompileRule(
-                    new QueryRule("Text", "Abc", "5")));
+                    new QueryRule("BadField", FieldOperation.Equal, "5")));
             }
 
             [Fact]
@@ -70,15 +62,15 @@ namespace GenericQuerySystemTests.Unit
 
                 // Act
                 var eqResult =
-                    _queryCompiler.CompileRule(new QueryRule("Number", Enum.GetName(typeof(ExpressionType), ExpressionType.Equal), "5"));
+                    _queryCompiler.CompileRule(new QueryRule("Number", FieldOperation.Equal, "5"));
                 var containsResuls =
                     _queryCompiler.CompileRule(
-                        new QueryRule("Text", "Contains", "ere"));
-                var gteResult = _queryCompiler.CompileRule(new QueryRule("Number", Enum.GetName(typeof(ExpressionType), ExpressionType.GreaterThanOrEqual), "10"));
+                        new QueryRule("Text", FieldOperation.Contains, "ere"));
+                var gteResult = _queryCompiler.CompileRule(new QueryRule("Number", FieldOperation.GreaterThanOrEqual, "10"));
                 var ltResult =
-                    _queryCompiler.CompileRule(new QueryRule("Number", Enum.GetName(typeof(ExpressionType), ExpressionType.LessThan), "2"));
+                    _queryCompiler.CompileRule(new QueryRule("Number", FieldOperation.LessThan, "2"));
                 var trueResult =
-                    _queryCompiler.CompileRule(new QueryRule("Yes", Enum.GetName(typeof(ExpressionType), ExpressionType.Equal), "true"));
+                    _queryCompiler.CompileRule(new QueryRule("Yes", FieldOperation.Equal, "true"));
 
                 // Assert
                 Assert.Equal(_testData.Count(x => eqFunc(x)), _testData.Count(x => eqResult(x)));

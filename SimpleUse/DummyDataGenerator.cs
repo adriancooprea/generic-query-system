@@ -8,37 +8,36 @@ namespace SimpleUse
     {
         public IList<SimpleModel> GenerateDummyData()
         {
-            var result = new List<SimpleModel>();
-
-            result.Add(new SimpleModel
+            var result = new List<SimpleModel>
             {
-                Id = 1,
-                Name = "Abc",
-                Enabled = true,
-                Date = new DateTime(2018, 1, 1),
-                TimeSpan = new DateTime(2018, 1, 1).TimeOfDay,
-                SimpleEnum = SimpleEnum.Option0
-            });
-
-            result.Add(new SimpleModel
-            {
-                Id = 2,
-                Name = "",
-                Enabled = false,
-                Date = new DateTime(2017, 1, 1),
-                TimeSpan = new DateTime(2017, 1, 1).TimeOfDay,
-                SimpleEnum = SimpleEnum.Option1
-            });
-
-            result.Add(new SimpleModel
-            {
-                Id = 3,
-                Name = "Dcf",
-                Enabled = true,
-                Date = new DateTime(2015, 1, 1),
-                TimeSpan = new DateTime(2015, 1, 1).TimeOfDay,
-                SimpleEnum = SimpleEnum.Option0
-            });
+                new SimpleModel
+                {
+                    Id = 1,
+                    Name = "Abc",
+                    Enabled = true,
+                    Date = new DateTime(2018, 1, 1),
+                    TimeSpan = new DateTime(2018, 1, 1, 12, 0, 0).TimeOfDay,
+                    SimpleEnum = SimpleEnum.Option0
+                },
+                new SimpleModel
+                {
+                    Id = 2,
+                    Name = "",
+                    Enabled = false,
+                    Date = new DateTime(2017, 1, 1),
+                    TimeSpan = new DateTime(2017, 1, 1, 1, 0, 0).TimeOfDay,
+                    SimpleEnum = SimpleEnum.Option1
+                },
+                new SimpleModel
+                {
+                    Id = 3,
+                    Name = "Dcf",
+                    Enabled = true,
+                    Date = new DateTime(2015, 1, 1),
+                    TimeSpan = new DateTime(2015, 1, 1, 7, 0, 0).TimeOfDay,
+                    SimpleEnum = SimpleEnum.Option0
+                }
+            };
 
             return result;
         }

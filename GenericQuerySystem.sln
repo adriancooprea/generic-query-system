@@ -6,7 +6,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GenericQuerySystem", "Gener
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GenericQuerySystemTests.Unit", "GenericQuerySystemTests.Unit\GenericQuerySystemTests.Unit.csproj", "{08EEEC7B-C2B4-4EBC-8E71-8D8E7A1060AA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleUse", "SimpleUse\SimpleUse.csproj", "{4EA9ECB2-6443-4D96-A7DF-DABD6AC4E053}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleUse", "SimpleUse\SimpleUse.csproj", "{4EA9ECB2-6443-4D96-A7DF-DABD6AC4E053}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

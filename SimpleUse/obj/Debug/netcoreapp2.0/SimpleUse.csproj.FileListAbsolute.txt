@@ -12,3 +12,5 @@ C:\Github\generic-query-system\SimpleUse\bin\Debug\netcoreapp2.0\GenericQuerySys
 C:\Github\generic-query-system\SimpleUse\obj\Debug\netcoreapp2.0\SimpleUse.csproj.CopyComplete
 C:\Github\generic-query-system\SimpleUse\obj\Debug\netcoreapp2.0\SimpleUse.dll
 C:\Github\generic-query-system\SimpleUse\obj\Debug\netcoreapp2.0\SimpleUse.pdb
+C:\Github\generic-query-system\SimpleUse\bin\Debug\netcoreapp2.0\xunit.assert.dll
+C:\Github\generic-query-system\SimpleUse\bin\Debug\netcoreapp2.0\xunit.assert.xml

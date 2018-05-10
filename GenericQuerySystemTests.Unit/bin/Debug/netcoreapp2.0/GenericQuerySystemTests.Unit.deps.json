@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.0",
-    "signature": "1dd95dd2d0fafa61a502c5060bc1cf86e0b150a4"
+    "signature": "f8982e5e1c09bb516bc030be6cf900cf59410644"
   },
   "compilationOptions": {},
   "targets": {
@@ -363,6 +363,14 @@
       "runtime.native.System/4.3.0": {
         "dependencies": {
           "Microsoft.NETCore.Targets": "1.1.0"
+        }
+      },
+      "SimpleInjector/4.2.2": {
+        "dependencies": {
+          "System.ComponentModel": "4.3.0"
+        },
+        "runtime": {
+          "lib/netstandard1.3/SimpleInjector.dll": {}
         }
       },
       "System.AppContext/4.1.0": {
@@ -1026,6 +1034,9 @@
         }
       },
       "GenericQuerySystem/1.0.0": {
+        "dependencies": {
+          "SimpleInjector": "4.2.2"
+        },
         "runtime": {
           "GenericQuerySystem.dll": {}
         }
@@ -1114,6 +1125,13 @@
       "sha512": "sha512-c/qWt2LieNZIj1jGnVNsE2Kl23Ya2aSTBuXMD6V7k9KWr6l16Tqdwq+hJScEpWER9753NWC8h96PaVNY5Ld7Jw==",
       "path": "runtime.native.system/4.3.0",
       "hashPath": "runtime.native.system.4.3.0.nupkg.sha512"
+    },
+    "SimpleInjector/4.2.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ZhzK8smGLZ5EBd5IWJ4Zuwmi3qmYmlCsqwtTh5l2O8WUDpGLVmkuPRaQWx5eMiwD9QthStEtsx3GHxRB1fQpCQ==",
+      "path": "simpleinjector/4.2.2",
+      "hashPath": "simpleinjector.4.2.2.nupkg.sha512"
     },
     "System.AppContext/4.1.0": {
       "type": "package",
